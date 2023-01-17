@@ -102,17 +102,17 @@ class BallMoveBehavior {
       ball.dy = -ball.dy;
     }
     if (ball.x - ball.radius < this.leftPaddle.x + this.leftPaddle.width &&
-      ball.x + ball.radius > this.leftPaddle.x &&
-      ball.y + ball.radius > this.leftPaddle.y &&
-      ball.y - ball.radius < this.leftPaddle.y + this.leftPaddle.height) {
+        ball.x + ball.radius > this.leftPaddle.x &&
+        ball.y + ball.radius > this.leftPaddle.y &&
+        ball.y - ball.radius < this.leftPaddle.y + this.leftPaddle.height) {
       ball.dx = -ball.dx;
       ball.x = this.leftPaddle.x + this.leftPaddle.width + ball.radius;
       this.speedUp();
     }
     if (this.ball.x + this.ball.radius > this.rightPaddle.x &&
-      this.ball.x - this.ball.radius < this.rightPaddle.x + this.rightPaddle.width &&
-      this.ball.y + this.ball.radius > this.rightPaddle.y &&
-      this.ball.y - this.ball.radius < this.rightPaddle.y + this.rightPaddle.height) {
+        this.ball.x - this.ball.radius < this.rightPaddle.x + this.rightPaddle.width &&
+        this.ball.y + this.ball.radius > this.rightPaddle.y &&
+        this.ball.y - this.ball.radius < this.rightPaddle.y + this.rightPaddle.height) {
       ball.dx = -ball.dx;
       ball.x = this.rightPaddle.x - ball.radius;
       this.speedUp();
@@ -121,9 +121,7 @@ class BallMoveBehavior {
   }
 
   speedUp() {
-    if (this.ball.speed < 100) {
-      this.ball.speed += 1;
-    }
+    this.ball.speed += 1;
   }
 }
 
@@ -244,7 +242,7 @@ export default {
       this.leftPaddle = new Paddle(canvas.width / 8, canvas.height / 2, canvas.height / 30, canvas.height / 8, imageUrl);
       this.rightPaddle = new Paddle(canvas.width - (canvas.width / 8), canvas.height / 2, canvas.height / 30, canvas.height / 8, imageUrl);
       this.ball = new Ball(canvas.width / 2, canvas.height / 2, canvas.height / 40, ballImageUrl);
-      this.scoringHandler = new ScoringHandler(canvas, this.ball, this.leftPaddle, this.rightPaddle, ()=>this.leftScore++, ()=>this.rightScore++);
+      this.scoringHandler = new ScoringHandler(canvas, this.ball, this.leftPaddle, this.rightPaddle, () => this.leftScore++, () => this.rightScore++);
 
       this.ballMoveBehavior = new BallMoveBehavior(this.ball, canvas, this.leftPaddle, this.rightPaddle, this.scoringHandler);
       this.leftPaddleMoveBehavior = new PaddleMoveBehavior(this.leftPaddle, this.ballMoveBehavior, canvas);
@@ -300,12 +298,14 @@ export default {
 body {
   margin: 0;
 }
+
 .game-canvas {
   width: 100%;
   height: 100%;
   image-rendering: pixelated;
   z-index: 10;
 }
+
 #app {
   overflow: hidden;
   font-family: Avenir, Helvetica, Arial, sans-serif;
