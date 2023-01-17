@@ -30,6 +30,7 @@ class Ball {
     this.x = this.resetX;
     this.y = this.resetY;
     this.speed = this.defaultSpeed;
+    this.generateRandomAngle();
   }
 
   generateRandomAngle() {
@@ -120,8 +121,8 @@ class BallMoveBehavior {
   }
 
   speedUp() {
-    if (this.ball.speed < 35) {
-      this.ball.speed += 0.5;
+    if (this.ball.speed < 100) {
+      this.ball.speed += 1;
     }
   }
 }
@@ -321,7 +322,7 @@ body {
   -webkit-text-stroke: 3px black;
   text-shadow: 0 0 3px black;
   font-weight: bold;
-  font-size: 4rem;
+  font-size: 6.5rem;
   z-index: 0;
 }
 
